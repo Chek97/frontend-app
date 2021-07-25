@@ -1,0 +1,31 @@
+.custom-navbar {
+    background: unset !important;
+    border: 2px solid #232323;
+    box-sizing: border-box;
+}
+
+.nav-tabs {
+    color: #ffff;
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+}
+
+.nav-login-tab {
+    box-shadow: 0px 0px 5px 2px rgba(1, 255, 47, 0.5);
+    border-radius: 15px;
+
+    &:hover {
+        background: $gradient;
+    }
+}
+
+.logo-icon-nav {
+    width: 13em;
+    height: 4.5em;
+    margin: 10px;
+
+    .icon-nav {
+      width: 100%;
+      height: 100%;  
+    }
+}

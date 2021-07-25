@@ -1,0 +1,139 @@
+.landing-main {
+    width: 100vw;
+    height: 80rem;
+    padding: 20rem;
+    
+    .landing-image {
+        background: url('../../assets/background-image.jpg') no-repeat center center fixed;
+        height: 100%;
+        width: 100vw;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+
+
+    }
+}
+
+.landing-ribbon {
+    background: $gradient;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .landign-ribbon-image {
+        width: 70%;
+        height: 15em;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        
+        .ribbon-image {
+            width: 50%;
+            height: 100%;
+        }
+    }
+
+    .landing-ribbon-text {
+        padding: 20px;
+        
+        p {
+            font-size: 30px;
+            text-align: right;
+            font-weight: 300;
+
+            strong {
+                font-weight: 900;
+            }
+        }
+    }
+    
+}
+
+.benefits-section {
+    margin: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .benefits-text {
+        color: #ffff;
+        font-size: 1.8rem;
+    
+        span {
+            background: $gradient;
+            color: $back;
+            font-weight: 900;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 5px;
+        }
+
+        strong {
+            font-weight: 900;
+        }
+    }
+}
+
+.list-benefits {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+
+    .list-item {
+        color: #ffff;
+        text-align: center;
+    }
+    
+}
+
+.more-info-section {
+    display: flex;
+    flex-direction: column;
+    color: #ffff;
+    text-align: center;
+    margin: 8em 0 4em 0;
+    line-height: 4px;
+
+    p {
+        font-size: 2rem;
+    }
+
+    small {
+        font-size: 1.5rem;
+    }
+    
+    strong {
+        font-weight: 900;
+        background: $gradient;
+        -webkit-background-clip: text;
+        color: transparent; 
+    }
+
+    .info-actions {
+        margin: 4em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        .info-instagram {
+            padding-right: 20px;
+
+            &:hover {
+                opacity: 0.1;
+            }
+        }
+
+        .info-button {
+            text-decoration: none;
+            background: $gradient;
+            padding: 1.2rem 5rem;
+            color: $back;
+            border-radius: 30px;
+        }
+    }
+}
