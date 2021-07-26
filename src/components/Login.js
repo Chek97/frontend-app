@@ -16,10 +16,12 @@ import { startFacebookLogin, startGoogleLogin, startLogin } from '../actions/aut
 import { useForm } from '../hooks/useForm';
 import { useStyles } from '../styles/styles';
 import validator from 'validator';
+import { useHistory } from 'react-router-dom';
 
 export const Login = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const history = useHistory();
     const [error, setError] = useState(false);
     const [formValues, handleInputChange] = useForm({
         email: '',
@@ -28,18 +30,21 @@ export const Login = () => {
 
     const {email, password} = formValues;
 
-    const submitGoogle = () => {
-        dispatch(startGoogleLogin());
+    const submitGoogle = async() => {
+        await dispatch(startGoogleLogin());
+        history.push('/list');
     }
 
-    const submitFacebook = () => {
-        dispatch(startFacebookLogin());
+    const submitFacebook = async() => {
+        await dispatch(startFacebookLogin());
+        history.push('/list');
     }
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         if(isFormValid()){
-            dispatch(startLogin(email, password));
+            await dispatch(startLogin(email, password));
+            history.push('/list');
         }
     }
 
@@ -62,7 +67,7 @@ export const Login = () => {
                 {
                     error
                     &&
-                    <Alert severity="error">Login Incorrecto</Alert>
+                    <Alert severity="error">Debes completar los espacios</Alert>
                 }
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />

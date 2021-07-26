@@ -9,16 +9,18 @@ import {
 } from '@material-ui/core';
 import {Alert} from '@material-ui/lab';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { startRegister } from '../actions/auth';
 import { useForm } from '../hooks/useForm';
 import { useStyles } from '../styles/styles';
 import validator from 'validator';
+import { removeError, setError } from '../actions/ui';
 
 export const Register = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const [error, setError] = useState(false);
+    const { error, message, loading } = useSelector(state => state.ui);
+    //const [error, setError] = useState(false);
     const [formValues, handleInputChange] = useForm({
         email: '',
         name: '',
@@ -37,16 +39,16 @@ export const Register = () => {
 
     const isFormValid = () => {
         if(name.trim().length === 0){
-            setError(true);
+            dispatch(setError('El nombre es requerido'));
             return false;
         }else if(!validator.isEmail(email)){
-            setError(true);
+            dispatch(setError('El correo no es valido'));
             return false;
         }else if(password.length < 5){
-            setError(true);
+            dispatch(setError('La contraseña debe tener minimo 6 caracteres'));
             return false;
         }
-
+        dispatch(removeError());
         return true;
     }
 
@@ -54,17 +56,22 @@ export const Register = () => {
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
-                {
-                    error
-                    &&
-                    <Alert severity="error">No fue posible registrar el usuario</Alert>
-                }
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Nuevo Usuario
                 </Typography>
+                {
+                    error
+                    &&
+                    <Alert severity="error">{error}</Alert>
+                }
+                {
+                    message !== ''
+                    &&
+                    <Alert severity="success">{message}</Alert>
+                }
                 <form className={classes.form} noValidate onSubmit={handleSubmit}>
                     <TextField
                         variant="outlined"
@@ -124,6 +131,7 @@ export const Register = () => {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        disabled={loading}
                     >
                         REGISTRAR
                     </Button>

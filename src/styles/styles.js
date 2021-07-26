@@ -19,4 +19,16 @@ export const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(3, 0, 2),
         background: 'linear-gradient(270deg, #00E6E3 2.73%, #00FF68 100%)',
     },
+    lists: {
+        width: '100%',
+        maxWidth: 360,
+        
+    },
+    listPostItem: {
+        border: '1px solid #00FF68',
+    },
+    icon: {
+        color: '#00E6E3'
+        
+    }
 }));

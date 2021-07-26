@@ -3,6 +3,8 @@ import appLogo from '../assets/icon2.png';
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { startLogout } from '../actions/auth';
 
 const useStyles = makeStyles(theme => ({
     offset: theme.mixins.toolbar,
@@ -16,6 +18,13 @@ const useStyles = makeStyles(theme => ({
 
 export const Navbar = () => {
     const classes = useStyles();
+    const { uid } = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(startLogout());
+    }
+
     return (
         <>
             <AppBar position="fixed" className="custom-navbar">
@@ -28,9 +37,17 @@ export const Navbar = () => {
                             INICIO
                         </NavLink>
                         <a href="#benefits" className="nav-tabs">BENEFICIOS</a>
-                        <NavLink to="/login" className="nav-tabs nav-login-tab">
-                            LOGIN
-                        </NavLink>
+                        {
+                            uid === null
+                            ?
+                            <NavLink to="/login" className="nav-tabs nav-login-tab">
+                                LOGIN
+                            </NavLink>
+                            :
+                            <a href="/login" onClick={handleLogout} className="nav-tabs nav-login-tab">
+                                Logout
+                            </a>
+                        }
                 </Toolbar>
             </AppBar>
             {/* <div className={classes.offset}></div> */}
