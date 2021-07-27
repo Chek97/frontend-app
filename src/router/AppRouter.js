@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
   } from "react-router-dom";
 import { LandingPage } from '../components/LandingPage';
 import { Login } from '../components/Login';
@@ -15,6 +16,7 @@ import { useDispatch } from 'react-redux';
 import {login} from '../actions/auth';
 import { CircularProgress } from '@material-ui/core';
 import { PrivateRoute } from './PrivateRoute';
+import { UpdateForm } from '../components/UpdateForm';
 
 export const AppRouter = () => {
 
@@ -36,7 +38,9 @@ export const AppRouter = () => {
 
     if(check){
         return (
-            <CircularProgress />
+            <div className="progress">
+                <CircularProgress className="progress-check" />
+            </div>
         )
     }
 
@@ -45,10 +49,13 @@ export const AppRouter = () => {
             <div>
                 <Navbar />
                 <Switch>
-                    <Route exact path="/" component={LandingPage} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />
+                    <PrivateRoute exact path="/landing" component={LandingPage} isAuth={loggin} />
                     <PrivateRoute exact path="/list" component={MainList} isAuth={loggin} />
+                    <PrivateRoute exact path="/updatePost" component={UpdateForm} isAuth={loggin} />
+                    
+                    <Redirect to="/login" />
                 </Switch>
                 <Footer />
             </div>

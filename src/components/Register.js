@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Avatar,
     Button,
@@ -20,7 +20,6 @@ export const Register = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const { error, message, loading } = useSelector(state => state.ui);
-    //const [error, setError] = useState(false);
     const [formValues, handleInputChange] = useForm({
         email: '',
         name: '',
@@ -53,7 +52,7 @@ export const Register = () => {
     }
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" className={classes.formContainer}>
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>

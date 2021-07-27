@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+//IMPORTS
+import React from 'react';
 import {
     Avatar,
     Button,
@@ -10,19 +11,20 @@ import {
     Container
 } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import {Alert} from '@material-ui/lab'
-import { useDispatch } from 'react-redux';
+import validator from 'validator';
+import { Alert } from '@material-ui/lab'
+import { useDispatch, useSelector } from 'react-redux';
 import { startFacebookLogin, startGoogleLogin, startLogin } from '../actions/auth';
 import { useForm } from '../hooks/useForm';
 import { useStyles } from '../styles/styles';
-import validator from 'validator';
 import { useHistory } from 'react-router-dom';
+import { removeError, setError } from '../actions/ui';
 
 export const Login = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
-    const [error, setError] = useState(false);
+    const { error, loading } = useSelector(state => state.ui);
     const [formValues, handleInputChange] = useForm({
         email: '',
         password: ''
@@ -50,24 +52,23 @@ export const Login = () => {
 
     const isFormValid = () => {
         if(!validator.isEmail(email)){
-            setError(true);
+            dispatch(setError('El correo no es valido'));
             return false;
         }else if(password.length < 5){
-            setError(true);
+            dispatch(setError('La contraseña debe tener minimo 6 caracteres'));
             return false;
         }
-
+        dispatch(removeError());
         return true;
     }
 
     return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
+        <Container component="div" maxWidth="xs" className={classes.formContainer}>
             <div className={classes.paper}>
                 {
                     error
                     &&
-                    <Alert severity="error">Debes completar los espacios</Alert>
+                    <Alert severity="error">{error}</Alert>
                 }
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
@@ -108,6 +109,7 @@ export const Login = () => {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        disabled={loading}
                     >
                         Acceder
                     </Button>

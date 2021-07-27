@@ -1,9 +1,11 @@
 .custom-footer {
     width: 100vw;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     background: unset;
+    bottom: 0;
     border: 1px solid #232323;
 
     .footer-logo-icon {        

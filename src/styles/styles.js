@@ -30,5 +30,13 @@ export const useStyles = makeStyles((theme) => ({
     icon: {
         color: '#00E6E3'
         
+    },
+    formContainer: {
+        marginTop: theme.spacing(15),
+        marginBottom: theme.spacing(20)
+    },
+    primaryText: {
+        fontSize: '32px',
+        fontWeight: '700'
     }
 }));

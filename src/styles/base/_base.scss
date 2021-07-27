@@ -8,3 +8,40 @@ body {
     background-color: $back !important;
     color: #FFFF;
 }
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+.progress {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+
+    .progress-check {
+        background: $gradient;
+    }
+}
+
+.update-icon {
+    color: #fff000;
+
+    &:hover {
+        color: #afa516;
+    }
+}
+
+.delete-icon {
+    color: #ff0000;
+
+    &:hover {
+        color: #bb1111;
+    }
+}
+
+.fav-icon:hover {
+    color: #ffff;
+}

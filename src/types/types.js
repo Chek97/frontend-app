@@ -3,7 +3,10 @@ export const types = {
     logout: '[auth] Logout',
 
     getPosts: '[post] Get Posts',
-    addFavorites: '[post] Add Favorite Posts',
+    getFavorite: '[post] Get Favorite Posts',
+    delteFavorite: '[post] Delete Favorite Post',
+    /* addFavorite: '[post] Add Favorite Post',
+    updateFavorite: '[post] Update Favorite Post', */
 
     setError: '[ui] Set Error',
     removeError: '[ui] Remove Error',

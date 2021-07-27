@@ -33,7 +33,7 @@ export const Navbar = () => {
                         <img className="icon-nav" src={appLogo} alt="AppLogo" />
                     </div>
                     <Typography variant="h6" className={classes.title}></Typography>
-                        <NavLink to="/" className="nav-tabs">
+                        <NavLink to="/landing" className="nav-tabs">
                             INICIO
                         </NavLink>
                         <a href="#benefits" className="nav-tabs">BENEFICIOS</a>
@@ -50,7 +50,6 @@ export const Navbar = () => {
                         }
                 </Toolbar>
             </AppBar>
-            {/* <div className={classes.offset}></div> */}
         </>
     )
 }
