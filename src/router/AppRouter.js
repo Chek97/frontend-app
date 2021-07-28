@@ -50,8 +50,8 @@ export const AppRouter = () => {
             <div>
                 <Navbar />
                 <Switch>
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/register" component={Register} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
                     <PrivateRoute exact path="/landing" component={LandingPage} isAuth={loggin} />
                     <PrivateRoute exact path="/list" component={MainList} isAuth={loggin} />
                     <PrivateRoute exact path="/updatePost" component={UpdateForm} isAuth={loggin} />
