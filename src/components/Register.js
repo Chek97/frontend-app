@@ -52,7 +52,7 @@ export const Register = () => {
     }
 
     return (
-        <Container component="main" maxWidth="xs" className={classes.formContainer}>
+        <Container component="div" maxWidth="xs" className={classes.formContainer}>
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
@@ -75,6 +75,7 @@ export const Register = () => {
                     <TextField
                         variant="outlined"
                         margin="normal"
+                        color="secondary"
                         required
                         fullWidth
                         id="email"
@@ -84,10 +85,12 @@ export const Register = () => {
                         autoComplete="email"
                         onChange={handleInputChange}
                         autoFocus
+                        className="inputText"
                     />
                     <TextField
                         variant="outlined"
                         margin="normal"
+                        color="secondary"
                         required
                         fullWidth
                         id="name"
@@ -97,10 +100,12 @@ export const Register = () => {
                         autoComplete="name"
                         onChange={handleInputChange}
                         autoFocus
+                        className="inputText"
                     />
                     <TextField
                         variant="outlined"
                         margin="normal"
+                        color="secondary"
                         required
                         fullWidth
                         id="lastName"
@@ -110,10 +115,12 @@ export const Register = () => {
                         autoComplete="lastName"
                         onChange={handleInputChange}
                         autoFocus
+                        className="inputText"
                     />
                     <TextField
                         variant="outlined"
                         margin="normal"
+                        color="secondary"
                         required
                         fullWidth
                         name="password"
@@ -123,6 +130,7 @@ export const Register = () => {
                         id="password"
                         onChange={handleInputChange}
                         autoComplete="current-password"
+                        className="inputText"
                     />
                     <Button
                         type="submit"

@@ -3,12 +3,12 @@ import React from 'react';
 import {
     Avatar,
     Button,
-    CssBaseline,
     TextField,
     Link,
     Grid,
     Typography,
-    Container
+    Container,
+    Box
 } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import validator from 'validator';
@@ -80,6 +80,8 @@ export const Login = () => {
                     <TextField
                         variant="outlined"
                         margin="normal"
+                        className='inputText'
+                        color="secondary"
                         required
                         fullWidth
                         id="email"
@@ -93,6 +95,7 @@ export const Login = () => {
                     <TextField
                         variant="outlined"
                         margin="normal"
+                        color="secondary"
                         required
                         fullWidth
                         name="password"
@@ -102,6 +105,7 @@ export const Login = () => {
                         id="password"
                         onChange={handleInputChange}
                         autoComplete="current-password"
+                        className="inputText"
                     />
                     <Button
                         type="submit"
@@ -113,27 +117,29 @@ export const Login = () => {
                     >
                         Acceder
                     </Button>
-                    <div className="google-btn" onClick={submitGoogle}>
-                        <div className="google-icon-wrapper">
+                    <div className="social-btn btn-google" onClick={submitGoogle}>
+                        <div className="social-icon-wrapper">
                             <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
                         </div>
                         <p className="btn-text">
                             <strong>Sign in with google</strong>
                         </p>
                     </div>
-                    <div className="google-btn" onClick={submitFacebook}>
-                        <div className="google-icon-wrapper">
+                    <div className="social-btn btn-facebook" onClick={submitFacebook}>
+                        <div className="social-icon-wrapper">
                             <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="google button" />
                         </div>
                         <p className="btn-text">
-                            <strong>Sign in with facebook</strong>
+                            <strong style={{color: '#fff'}}>Sign in with facebook</strong>
                         </p>
                     </div>
+                    <Box component="div" className="register-link">
+                        <Link href="/register" variant="body2" color="secondary">
+                            {"No tienes una cuenta? registrate aqui"}
+                        </Link>
+                    </Box>
                     <Grid container>
                         <Grid item>
-                            <Link href="/register" variant="body2">
-                                {"No tienes una cuenta? registrate aqui"}
-                            </Link>
                         </Grid>
                     </Grid>
                 </form>

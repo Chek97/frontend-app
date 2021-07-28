@@ -17,6 +17,7 @@ import {login} from '../actions/auth';
 import { CircularProgress } from '@material-ui/core';
 import { PrivateRoute } from './PrivateRoute';
 import { UpdateForm } from '../components/UpdateForm';
+import { PostForm } from '../components/PostForm';
 
 export const AppRouter = () => {
 
@@ -55,6 +56,9 @@ export const AppRouter = () => {
                     <PrivateRoute exact path="/list" component={MainList} isAuth={loggin} />
                     <PrivateRoute exact path="/updatePost" component={UpdateForm} isAuth={loggin} />
                     
+                    <PrivateRoute exact path="/api/formData/:action" component={PostForm} isAuth={loggin} />
+
+
                     <Redirect to="/login" />
                 </Switch>
                 <Footer />

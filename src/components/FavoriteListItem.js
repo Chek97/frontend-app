@@ -3,8 +3,8 @@ import {
     IconButton, 
     ListItem, 
     ListItemIcon, 
-    ListItemSecondaryAction, 
-    ListItemText
+    ListItemText,
+    Typography
 } from '@material-ui/core';
 import { ArtTrack, Create, Delete } from '@material-ui/icons';
 import { useStyles } from '../styles/styles';
@@ -28,19 +28,23 @@ export const FavoriteListItem = ({fav}) => {
     }
 
     return (
-        <ListItem key={fav.id} className={classes.listPostItem}>
-            <ListItemIcon>
+        <ListItem key={fav.id} className='list-posts-item'>
+            <ListItemIcon className="item-post-icon">
                 <ArtTrack className={classes.icon} />
             </ListItemIcon>
-            <ListItemText style={{ color: '#ffff' }} primary={fav.title} />
-            <ListItemSecondaryAction>
+            <ListItemText className="fav-content">
+                <Typography className="fav-title">
+                    {fav.title}
+                </Typography>
+            </ListItemText>
+            <ListItemIcon className="item-fav-icon">
                 <IconButton edge="end" aria-label="updated" onClick={(e) => handleUpdate(e, fav)}>
                     <Create className="update-icon" />
                 </IconButton>
                 <IconButton edge="end" aria-label="delete" onClick={(e) => handleDelete(e, fav.id)}>
                     <Delete className="delete-icon" />
                 </IconButton>
-            </ListItemSecondaryAction>
+            </ListItemIcon>
         </ListItem>
     )
 }

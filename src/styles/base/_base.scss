@@ -6,7 +6,9 @@ $back: #0E0E0E;
 
 body {
     background-color: $back !important;
-    color: #FFFF;
+    color: #FFFF !important;
+    padding: 0;
+    margin: 0;
 }
 
 html {
@@ -42,6 +44,23 @@ html {
     }
 }
 
-.fav-icon:hover {
-    color: #ffff;
+.fav-icon {
+    color: $green2;
+
+    &:hover {
+        color: #ffff;
+    }
+}
+
+.inputText {
+    background-color: $line;
+    border-radius: 4px;
+
+    &:hover {
+        color: #ffff !important;
+    }
+}
+
+.register-link {
+    padding-top: 20px;
 }

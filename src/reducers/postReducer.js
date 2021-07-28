@@ -12,6 +12,27 @@ export const postReducer = (state = initial, action) => {
                 ...state,
                 posts: action.payload
             }
+        case types.addPost:
+            return {
+                ...state,
+                posts: [...state.posts, action.payload]
+            }
+        case types.updatePost:
+            return {
+                ...state,
+                posts: state.posts.map(post => {
+                    if(post.id === action.payload.id){
+                        return action.payload;
+                    }else{
+                        return post;
+                    }
+                })
+            }
+        case types.deletePost:
+            return {
+                ...state,
+                posts: state.posts.filter(post => post.id !== action.payload)
+            }
         case types.getFavorite:
             return {
                 ...state,

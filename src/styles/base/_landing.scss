@@ -1,18 +1,25 @@
-.landing-main {
-    width: 100vw;
-    height: 80rem;
-    padding: 20rem;
-    
-    .landing-image {
-        background: url('../../assets/background-image.jpg') no-repeat center center fixed;
-        height: 100%;
-        width: 100vw;
-        background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        -o-background-size: cover;
+.landing-background {
+    background-image: url('../../assets/background-image.jpg');
+    background-size: 100vw 100vh;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    opacity: 0.2;
 
+    p {
+        font-weight: 300;
+        padding-left: 3em;
+        width: 30%;
+        font-size: 25px;
+        text-align: left;
+        line-height: 50px;
+        z-index: 100;
+    }
 
+    strong {
+        font-weight: 900;
     }
 }
 
@@ -22,25 +29,34 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    height: 200px;
+    width: 100vw;
+    transform: rotate(-2deg);
 
     .landign-ribbon-image {
-        width: 70%;
-        height: 15em;
+        width: 50%;
+        height: 200px;
+        padding-bottom: 40px;
         display: flex;
         align-items: flex-end;
-        justify-content: flex-end;
+        justify-content: center;
+        transform: rotate(2deg);
         
         .ribbon-image {
-            width: 50%;
+            width: 450px;
+            padding-left: 50%;
             height: 100%;
         }
     }
 
     .landing-ribbon-text {
-        padding: 20px;
+        transform: rotate(2deg);
+        width: 50%;
+        color: $back !important;
+        padding: 0 50px 0 80px;
         
         p {
-            font-size: 30px;
+            font-size: 28px;
             text-align: right;
             font-weight: 300;
 

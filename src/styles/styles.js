@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.main,
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
+        width: '100%',
         marginTop: theme.spacing(1),
     },
     submit: {
@@ -22,14 +22,13 @@ export const useStyles = makeStyles((theme) => ({
     lists: {
         width: '100%',
         maxWidth: 360,
+        marginTop: '20px'
         
-    },
-    listPostItem: {
-        border: '1px solid #00FF68',
     },
     icon: {
-        color: '#00E6E3'
-        
+        color: '#00E6E3',
+        width: '100%',
+        height: '100%'
     },
     formContainer: {
         marginTop: theme.spacing(15),
@@ -37,6 +36,6 @@ export const useStyles = makeStyles((theme) => ({
     },
     primaryText: {
         fontSize: '32px',
-        fontWeight: '700'
-    }
+        fontWeight: '700',
+    },
 }));
