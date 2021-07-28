@@ -70,6 +70,8 @@ export const UpdateForm = ({location}) => {
                         autoComplete="title"
                         onChange={handleInputChange}
                         autoFocus
+                        color="secondary"
+                        className="inputText"
                     />
                     <TextField
                         id="outlined-multiline-static"
@@ -77,10 +79,13 @@ export const UpdateForm = ({location}) => {
                         multiline
                         rows={10}
                         name="body"
+                        style={{width: '100%'}}
                         defaultValue={formBody}
                         variant="outlined"
                         onChange={handleInputChange}
                         autoComplete="body"
+                        color="secondary"
+                        className="inputText"
                     />
                     <Button
                         type="submit"
@@ -89,10 +94,10 @@ export const UpdateForm = ({location}) => {
                         color="primary"
                         className={classes.submit}
                         disabled={loading}
-                    >
+                        >
                         Actualizar
                     </Button>
-                    <Button variant="contained" color="secondary" onClick={handleBack}>Volver</Button>
+                    <Button variant="contained" color="secondary" onClick={handleBack} style={{width: '100%'}}>Volver</Button>
                 </form>
             </div>
         </Container>

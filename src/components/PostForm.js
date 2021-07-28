@@ -18,7 +18,7 @@ import { startAddApiPost, startUpdateApiPost } from '../actions/post';
 export const PostForm = ({location}) => {
 
     const { action } = useParams();
-    const { id, title: titleValue, body: bodyValue } = location.state;
+    const { id, title: titleValue, body: bodyValue } = location?.state || '';
     const classes = useStyles();
     const { error, loading, message } = useSelector(state => state.ui);
     const { uid } = useSelector(state => state.auth);
@@ -117,6 +117,7 @@ export const PostForm = ({location}) => {
                         onChange={handleInputChange}
                         autoComplete="body"
                         className="inputText"
+                        style={{width: '100%'}}
                     />
                     <Button
                         type="submit"
@@ -134,7 +135,7 @@ export const PostForm = ({location}) => {
                             'Actualizar'
                         }
                     </Button>
-                    <Button variant="contained" color="secondary" onClick={handleBack}>Volver</Button>
+                    <Button variant="contained" color="secondary" style={{width: '100%'}} onClick={handleBack}>Volver</Button>
                 </form>
             </div>
         </Container>
